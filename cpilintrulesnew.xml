@@ -1,0 +1,50 @@
+<cpilint>
+	<rules>
+	
+		<iflow-description-required/> <!--IflowDescriptionRequired: To comply with this rule, an integration flow must have a description -->
+		
+		<allowed-receiver-adapters>
+			<allow>odata</allow>
+			<allow>soap</allow>
+			<allow>rfc</allow>
+		</allowed-receiver-adapters>
+		
+		<allowed-scripting-languages>
+			<allow>groovy</allow>
+		</allowed-scripting-languages>
+		
+		<allowed-sender-adapters>
+			<allow>https</allow>
+			<allow>idoc</allow>
+			<allow>sftp</allow>
+		</allowed-sender-adapters>
+		
+		<allowed-mapping-types>
+			<allow>message-mapping</allow>
+		</allowed-mapping-types>
+		
+		<naming>
+			<scheme>
+				<or>
+					<starts-with>Z_</starts-with>
+					<starts-with>B2B_</starts-with>
+					<starts-with>CP_</starts-with>
+				</or>
+			</scheme>
+			<message>Participant names must start with Z_, B2B_ or CP_</message>
+			<apply-to>sender.name</apply-to>
+			<apply-to>receiver.name</apply-to>
+		</naming>
+		
+		<naming>
+			<scheme>
+				<not>
+					<regex>Message Mapping \d+</regex>
+				</not>
+			</scheme>
+			<message>Don't use the default Message Mapping step names</message>
+			<apply-to>message-mapping.name</apply-to>
+		</naming>
+		
+	</rules>
+</cpilint>
