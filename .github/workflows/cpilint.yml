@@ -59,4 +59,4 @@ jobs:
             chmod +x ./cpilint-1.0.4/bin/cpilint
 
     - name: Executing tests on iFlow
-      run: ./cpilint-1.0.4/bin/cpilint -rules cpilint.xml -directory artifacts/
+      run: ./cpilint-1.0.4/bin/cpilint -rules cpilintrulesnew.xml -files ODataAdapter-Northwind.zip
